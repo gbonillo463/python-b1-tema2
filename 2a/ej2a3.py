@@ -42,66 +42,29 @@ Ejemplo:
     Student list by reference ['Alice', 'Bob', 'Juan', 'Sofia']
     Original student list ['Alice', 'Bob', 'Juan', 'Sofia']
 
-
-Enunciat:
-Cal crear dues funcions que treballin amb una llista d'estudiants
-i afegeixin un nou estudiant a la llista. La diferència és que la funció
-'add_student_by_value(list_students, new_student)' ha d'afegir al nou
-estudiant fent servir pas per valor i la funció
-'add_student_by_reference(list_students, new_student)' fent servir pas per
-referència. Ambdues funcions seran orquestrades des de la funció
-'main(list_students, new_student)' que ja està definida.
-
-La funció 'add_student_by_value(list_students, new_student)' ha de copiar
-la llista d'estudiants per no afectar la llista original i afegir al nou
-estudiant. Aquesta és la solució de pas per valor.
-Paràmetres:
-     - list_students (List): Llista d'estudiants original.
-     - new_student (str): Nom del nou estudiant.
-
-La funció 'add_student_by_reference(list_students, new_student)' ha d'afegir
-al nou estudiant usant pas per referència.
-Paràmetres:
-     - list_students (List): Llista d'estudiants original.
-     - new_student (str): Nom del nou estudiant.
-
-La funció 'main(list_students, new_student)' és la que trucarà a les 2
-funcions prèviament definides per comprovar que list_students
-canvieu d'acord amb la funció trucada.
-Paràmetres:
-     - list_students (List): Llista d'estudiants original.
-     - new_student (str): Nom del nou estudiant.
-
-Exemple:
-     Entrada:
-     list_students = ['Alice', 'Bob', 'Juan']
-     new_student_by_value = 'Maria'
-     new_student_by_reference = 'Sofia'
-
-     main(list_students, new_student_by_value, new_student_by_reference)
-
-     Sortida:
-     Original student list ['Alice', 'Bob', 'Juan']
-     Student list by value ['Alice', 'Bob', 'Juan', 'Maria']
-     Student list by reference ['Alice', 'Bob', 'Juan', 'Sofia']
-     Original student list ['Alice', 'Bob', 'Juan', 'Sofia']
-
 """
 
 
 def add_student_by_value(list_students, new_student):
-    # Write here your code
-    pass
-
+    
+    new_list = list_students.copy()
+    new_list.append(new_student)
+    return new_list
+    
 
 def add_student_by_reference(list_students, new_student):
-    # Write here your code
-    pass
+    
+    list_students.append(new_student)
+    return list_students
 
 
 def main(list_students, new_student_by_value, new_student_by_reference):
-    # Write here your code
-    pass
+    
+    list_value = add_student_by_value(list_students, new_student_by_value)
+    list_reference = add_student_by_reference(list_students, new_student_by_reference)
+    
+    return list_students
+    
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
@@ -110,4 +73,4 @@ def main(list_students, new_student_by_value, new_student_by_reference):
 # new_student_by_value = "Maria"
 # new_student_by_reference = "Sofia"
 
-# main(list_students, new_student_by_value, new_student_by_reference)
+# main(list_students, new_student_by_value, new_student_by_reference) 
